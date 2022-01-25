@@ -25,6 +25,7 @@
 
 > Client options is not required as all important options have a default
 
+1. Create a client
 ```php
 use Dodo\Redis\RedisClient;
 
@@ -34,7 +35,9 @@ $redis = new RedisClient([
     "port" => "...",
     "debug" => true
 ]);
-
+```
+2. Set command in combination with expiry time
+```php
 $redis->set("test", "this is a test")
     ->ex(2) // Expire in 2 seconds
     ->exec();
@@ -47,21 +50,44 @@ sleep(2);
 
 $query = $redis->get("test")
 
-echo $query->get(); // Throws an error because the query resonse is a boolean: false
+echo $query->get(); // Throws an error because the query response is a boolean: false
+```
 
+3. Set command in combination with expiry
+```php
+$redis->set("test", "this is a test")->exec();
+
+$redis->set("test", "this is NOT a test")
+    ->nx() // If 'test' does not exist
+    ->exec();
+
+$query = $redis->get("test")
+
+echo $query->get(); // 'this is a test'
+
+$redis->set("test", "this is a NOT test")
+    ->ix() // If 'test' does exist
+    ->exec();
+
+$query = $redis->get("test")
+
+echo $query->get(); // 'this is NOT a test'
+```
+
+1. Command with JSON
+```php
 $redis->set("test", array(
         "id" => uuid_create()
     ))
-    ->json()
+    ->json() // JSON stringyfies sent data
     ->ex(10)
     ->exec();
 
 $query = $redis->get("test")
-    ->json()
+    ->json() // JSON decodes retrieved data
     ->exec();
 
 $object = $query->get();
 
 echo $object->id;
-
 ```

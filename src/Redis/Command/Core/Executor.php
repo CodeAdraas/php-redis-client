@@ -21,7 +21,7 @@ class Executor
     public function __construct(RedisClient $client) 
     {
         $this->client = $client;
-        $this->resolver = $this->createresolver();
+        $this->resolver = $this->createResolver();
     }
 
     /**
@@ -29,7 +29,7 @@ class Executor
      * 
      * @return Resolver
      */
-    private function createresolver(): Resolver
+    private function createResolver(): Resolver
     {
         return new Resolver();
     }
