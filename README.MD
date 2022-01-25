@@ -1,3 +1,5 @@
+![Client flow diagram](https://raw.githubusercontent.com/CodeAdraas/php-redis-client/master/client-flow-diagram.jpg)
+
 ## Requirements
  * PHP 7.4+
  * [PhpRedis extension](https://github.com/phpredis/phpredis) (More connection schemes will be available in the future)
