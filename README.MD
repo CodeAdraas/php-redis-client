@@ -1,4 +1,4 @@
-![Client flow diagram](https://raw.githubusercontent.com/CodeAdraas/php-redis-client/master/client-flow-diagram.jpg)
+![Client flow diagram](https://raw.githubusercontent.com/CodeAdraas/php-redis-client/master/client-flow-diagram.png)
 
 ## Requirements
  * PHP 7.4+
