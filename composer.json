@@ -1,0 +1,22 @@
+{
+    "name": "codeadraas/php-redis-client",
+    "description": "Simple high-level redis php client",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "9"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dodo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "CodeAdraas",
+            "email": "david@achoendov.nl"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {}
+}
